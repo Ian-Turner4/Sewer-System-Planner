@@ -1,2 +1,2 @@
-# Sewer-System-Planner
-Create detailed plans for sewer infrastructure systems
+# Sewer System Planner
+Software for designing detailed plans for sewer infrastructure.
