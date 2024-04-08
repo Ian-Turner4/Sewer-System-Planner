@@ -6,9 +6,10 @@ public class entry {
 	
 	private static int mouseX = 0;
 	private static int mouseY = 0;
+	private static int toolPosX = 0;
+	private static int toolPosY = 0;
 
 	public static void main(String[] args) {
-		// TODO Fill out method, test
 		SwingUtilities.invokeLater(() -> {
 
             JFrame frame = new JFrame("Graphics Window");
@@ -24,7 +25,7 @@ public class entry {
                     g.setColor(Color.RED);
                     g.fillRect(100, 100, 200, 100);
                     g.setColor(Color.BLACK);
-                    g.drawOval(mouseX, mouseY, 10, 10);
+                    g.drawOval(toolPosX, toolPosY, 10, 10);
                     for (int i=1; i<(frame.getWidth()/10); i++) {
                     	g.drawLine(i*10, 0, i*10, frame.getHeight());
                     }
@@ -45,6 +46,8 @@ public class entry {
                 public void mouseMoved(MouseEvent e) {
                     mouseX = e.getX();
                     mouseY = e.getY();
+                    toolPosX = (int) (Math.round(mouseX/10.0)*10) - 5;
+                    toolPosY = (int) (Math.round(mouseY/10.0)*10) - 5;
                     panel.repaint();
                 }
             });
