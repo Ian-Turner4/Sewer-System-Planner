@@ -54,7 +54,6 @@ public class entry {
             	public void mouseClicked(MouseEvent e) {
             		panel.setVisible(true);
             		start.setVisible(false);
-            		System.out.println("not again");
             	}
             });
             
