@@ -8,15 +8,24 @@ public class entry {
 	private static int mouseY = 0;
 	private static int toolPosX = 0;
 	private static int toolPosY = 0;
+	
+	static JLabel l;
+	
 
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(() -> {
 
             JFrame frame = new JFrame("Graphics Window");
+            
+            l = new JLabel();
+            l.setText("press mouse to enter application");
 
             frame.setSize(900, 800);
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setResizable(false);
+            
+            JPanel start = new JPanel();
+            start.add(l);
             
             JPanel panel = new JPanel() {
                 @Override
@@ -41,6 +50,14 @@ public class entry {
                 
             };
             
+            start.addMouseListener(new MouseAdapter(){
+            	public void mouseClicked(MouseEvent e) {
+            		panel.setVisible(true);
+            		start.setVisible(false);
+            		System.out.println("not again");
+            	}
+            });
+            
             panel.addMouseMotionListener(new MouseMotionAdapter() {
                 @Override
                 public void mouseMoved(MouseEvent e) {
@@ -52,8 +69,10 @@ public class entry {
                 }
             });
             
+            frame.setLayout(new FlowLayout());
             
             frame.add(panel);
+            frame.add(start);
             
             frame.setVisible(true);
         });
