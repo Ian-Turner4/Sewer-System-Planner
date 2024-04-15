@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class entry {
+public class SewerSystemPlanner {
 	
 	private static int mouseX = 0;
 	private static int mouseY = 0;
@@ -15,7 +15,7 @@ public class entry {
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(() -> {
 
-            JFrame frame = new JFrame("Graphics Window");
+            JFrame frame = new JFrame("Sewer System Planner");
             
             l = new JLabel();
             l.setText("press mouse to enter application");
