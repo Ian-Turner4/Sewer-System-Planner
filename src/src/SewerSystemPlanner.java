@@ -18,7 +18,7 @@ public class SewerSystemPlanner {
             JFrame frame = new JFrame("Sewer System Planner");
             
             l = new JLabel();
-            l.setText("press mouse to enter application");
+            l.setText("press to enter application");
 
             frame.setSize(900, 800);
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
