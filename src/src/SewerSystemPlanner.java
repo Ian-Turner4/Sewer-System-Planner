@@ -9,23 +9,15 @@ public class SewerSystemPlanner {
 	private static int toolPosX = 0;
 	private static int toolPosY = 0;
 	
-	static JLabel l;
-	
 
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(() -> {
 
             JFrame frame = new JFrame("Sewer System Planner");
-            
-            l = new JLabel();
-            l.setText("press to enter application");
 
             frame.setSize(900, 800);
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setResizable(false);
-            
-            JPanel start = new JPanel();
-            start.add(l);
             
             JPanel panel = new JPanel() {
                 @Override
@@ -50,13 +42,6 @@ public class SewerSystemPlanner {
                 
             };
             
-            start.addMouseListener(new MouseAdapter(){
-            	public void mouseClicked(MouseEvent e) {
-            		panel.setVisible(true);
-            		start.setVisible(false);
-            	}
-            });
-            
             panel.addMouseMotionListener(new MouseMotionAdapter() {
                 @Override
                 public void mouseMoved(MouseEvent e) {
@@ -68,10 +53,7 @@ public class SewerSystemPlanner {
                 }
             });
             
-            frame.setLayout(new FlowLayout());
-            
             frame.add(panel);
-            frame.add(start);
             
             frame.setVisible(true);
         });
