@@ -1,4 +1,4 @@
 
-public class Point {
+public class Loc {
 	public double x, y;
 }

@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 public class SewerSystemPlanner {
 	
@@ -8,6 +9,8 @@ public class SewerSystemPlanner {
 	private static int mouseY = 0;
 	private static int toolPosX = 0;
 	private static int toolPosY = 0;
+	
+	ArrayList<Point> Points = new ArrayList<Point>();
 	
 
 	public static void main(String[] args) {
