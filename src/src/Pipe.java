@@ -1,9 +1,9 @@
 
 public class Pipe {
 	private double length, diameter;
-	private Point point1, point2;
+	private Loc point1, point2;
 	
-	public Pipe(Point point1, Point point2, double diameter) {
+	public Pipe(Loc point1, Loc point2, double diameter) {
 		this.point1 = point1;
 		this.point2 = point2;
 		this.diameter = diameter;

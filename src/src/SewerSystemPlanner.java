@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 
+
 public class SewerSystemPlanner {
 	
 	private static int mouseX = 0;
@@ -10,7 +11,8 @@ public class SewerSystemPlanner {
 	private static int toolPosX = 0;
 	private static int toolPosY = 0;
 	
-	ArrayList<Point> Points = new ArrayList<Point>();
+	static ArrayList<Loc> Locs = new ArrayList<Loc>();
+	static ArrayList<Pipe> Pipes = new ArrayList<Pipe>();
 	
 
 	public static void main(String[] args) {
@@ -36,6 +38,9 @@ public class SewerSystemPlanner {
                     for (int i=1; i<(frame.getHeight()/10); i++) {
                     	g.drawLine(0, i*10, frame.getWidth(), i*10);
                     }
+                    for(Loc i:Locs) {
+                    	g.drawOval(i.x, i.y, 10, 10);
+                    }
                 }
 
                 @Override
@@ -54,6 +59,13 @@ public class SewerSystemPlanner {
                     toolPosY = (int) (Math.round(mouseY/10.0)*10) - 5;
                     panel.repaint();
                 }
+            });
+            
+            panel.addMouseListener(new MouseAdapter() {
+            	public void mousePressed(MouseEvent e) {
+                	Locs.add(new Loc(toolPosX, toolPosY));
+                	panel.repaint();
+				}
             });
             
             frame.add(panel);
