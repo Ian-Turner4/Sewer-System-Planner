@@ -26,8 +26,6 @@ public class SewerSystemPlanner {
 		new Button(850, 200, 30, "P"),
 		new Button(850, 300, 30, "R")
 	};
-	
-	static ArrayList<JLabel> labels = new ArrayList<JLabel>();
 
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(() -> {
