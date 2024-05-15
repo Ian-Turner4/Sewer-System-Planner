@@ -1,12 +1,13 @@
 
 public class Pipe {
-	private double length, diameter;
-	private Loc point1, point2;
+	double length;
+	int x1, x2, y1, y2;
 	
-	public Pipe(Loc point1, Loc point2, double diameter) {
-		this.point1 = point1;
-		this.point2 = point2;
-		this.diameter = diameter;
-		this.length = Math.sqrt(Math.pow(point2.x - point1.x, 2) + Math.pow(point2.y - point1.y, 2));
+	public Pipe(int x1, int x2, int y1, int y2) {
+		this.x1 = x1;
+		this.y1 = y1;
+		this.x2 = x2;
+		this.y2 = y2;
+		this.length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
 	}
 }

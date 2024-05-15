@@ -11,9 +11,21 @@ public class SewerSystemPlanner {
 	private static int toolPosX = 0;
 	private static int toolPosY = 0;
 	
+	private static int tempPipeX, tempPipeY;
+	
+	private static String toolSym = "L";
+	
+	static boolean pointsFull[][] = new boolean[90][80];
+	
 	static ArrayList<Loc> Locs = new ArrayList<Loc>();
 	static ArrayList<Pipe> Pipes = new ArrayList<Pipe>();
+
+	static Button[] Buttons = new Button[]{
+		new Button(850, 100, 30, "L"),
+		new Button(850, 200, 30, "P")
+	};
 	
+	static ArrayList<JLabel> labels = new ArrayList<JLabel>();
 
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(() -> {
@@ -28,8 +40,6 @@ public class SewerSystemPlanner {
                 @Override
                 protected void paintComponent(Graphics g) {
                     super.paintComponent(g);
-                    g.setColor(Color.RED);
-                    g.fillRect(100, 100, 200, 100);
                     g.setColor(Color.BLACK);
                     g.drawOval(toolPosX, toolPosY, 10, 10);
                     for (int i=1; i<(frame.getWidth()/10); i++) {
@@ -40,6 +50,18 @@ public class SewerSystemPlanner {
                     }
                     for(Loc i:Locs) {
                     	g.drawOval(i.x, i.y, 10, 10);
+                    }
+                    g.setColor(Color.BLUE);
+                    for(Pipe i:Pipes) {
+                    	g.drawLine(i.x1, i.y1, i.x2, i.y2);
+                    }
+                    g.setColor(Color.RED);
+                    for(Button i:Buttons) {
+                    	g.fillOval(i.x, i.y, i.size, i.size);
+                    }
+                    g.setColor(Color.BLACK);
+                    for(Button i:Buttons) {
+                    	g.drawString(i.sym, i.x + i.size/2, i.y + i.size/2);
                     }
                 }
 
@@ -63,8 +85,31 @@ public class SewerSystemPlanner {
             
             panel.addMouseListener(new MouseAdapter() {
             	public void mousePressed(MouseEvent e) {
-                	Locs.add(new Loc(toolPosX, toolPosY));
-                	panel.repaint();
+            		if(Buttons[0].mouseOver(mouseX, mouseY)) {
+            			toolSym = "L";
+            		}
+            		else if(Buttons[1].mouseOver(mouseX, mouseY)) {
+            			toolSym = "P";
+            		}
+            		else if(toolSym == "L" && pointsFull[(toolPosX/10)-1][(toolPosY/10)-1] == false) {
+            			Locs.add(new Loc(toolPosX, toolPosY));
+            			pointsFull[(toolPosX/10)-1][(toolPosY/10)-1] = true;
+            			panel.repaint();
+            		}
+            		else if(toolSym == "P" && pointsFull[(toolPosX/10)-1][(toolPosY/10)-1] == false) {
+            			Locs.add(new Loc(toolPosX, toolPosY));
+            			pointsFull[(toolPosX/10)-1][(toolPosY/10)-1] = true;
+            			tempPipeX = toolPosX;
+            			tempPipeY = toolPosY;
+            			toolSym = "P2";
+            		}
+            		else if(toolSym == "P2" && pointsFull[(toolPosX/10)-1][(toolPosY/10)-1] == false) {
+            			Locs.add(new Loc(toolPosX, toolPosY));
+            			pointsFull[(toolPosX/10)-1][(toolPosY/10)-1] = true;
+            			Pipes.add(new Pipe(tempPipeX, toolPosX, tempPipeY, toolPosY));
+            			toolSym = "P";
+            			panel.repaint();
+            		}
 				}
             });
             
