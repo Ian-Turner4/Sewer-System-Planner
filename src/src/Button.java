@@ -11,11 +11,6 @@ public class Button {
 	}
 	
 	boolean mouseOver(int mousex, int mousey) {
-		if((mousex < this.x + (this.size))&&(mousex > this.x)&&(mousey < this.y + (this.size))&&(mousey > this.y)) {
-			return true;
-		}
-		else {
-			return false;
-		}
+		return ((mousex < this.x + (this.size))&&(mousex > this.x)&&(mousey < this.y + (this.size))&&(mousey > this.y)) ? (true):(false);
 	}
 }
