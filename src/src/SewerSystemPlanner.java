@@ -51,9 +51,11 @@ public class SewerSystemPlanner {
                     for(Loc i:Locs) {
                     	g.drawOval(i.x, i.y, 10, 10);
                     }
-                    g.setColor(Color.BLUE);
                     for(Pipe i:Pipes) {
+                    	g.setColor(Color.BLUE);
                     	g.drawLine(i.x1, i.y1, i.x2, i.y2);
+                    	g.setColor(Color.BLACK);
+                    	g.drawString(String.valueOf(Math.round(i.length * 100.0) / 100.0), (i.x1+i.x2)/2, (i.y1+i.y2)/2);
                     }
                     g.setColor(Color.RED);
                     for(Button i:Buttons) {
