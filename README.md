@@ -21,4 +21,4 @@ ArrayLists are used to contain all sewer components
 Graphical solution with selectors and precise input.
 
 ## Class Diagram
-<img src="https://github.com/Ian-Turner4/Sewer-System-Planner/blob/main/images/SewerClassDiagram.png?raw=true">
+<img src="https://github.com/Ian-Turner4/Sewer-System-Planner/blob/main/images/SewerClassDiagramUpdated.png?raw=true">
