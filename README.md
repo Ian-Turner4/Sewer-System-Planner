@@ -2,6 +2,9 @@
 A software for designing basic sewer infrastructure systems.
 This program uses Java Swing for graphics.
 
+## Running Screenshot
+<img src="https://github.com/Ian-Turner4/Sewer-System-Planner/blob/main/images/SewerSystemScreenshot.png?raw=true">
+
 ## Advanced Concepts
 A list of advanced concepts used in this project.
 ### Enhanced For Loop
