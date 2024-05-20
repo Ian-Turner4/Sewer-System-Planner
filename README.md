@@ -13,7 +13,7 @@ Used extensively in logic for rendering, validation and more.
 Used in button validation and descision making.
 ### Multidimensional Arrays
 Used for grid system to validate points.
-### Overloading
+### Overriding
 Used extensively for Swing graphics.
 ### Collections
 ArrayLists are used to contain all sewer components
